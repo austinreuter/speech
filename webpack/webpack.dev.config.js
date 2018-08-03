@@ -9,7 +9,7 @@ module.exports = {
 
 	],
 	module: {
-		loaders: [{
+		rules: [{
 			test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader'
@@ -19,10 +19,10 @@ module.exports = {
 			}
 		]
 	},
-	output: [
+	output: {
     path: path.join(parentDir, 'client/dist'),
     filename: 'bundle.js'
-	],
+	},
 	devServer: {
     contentBase: path.join(parentDir, 'client/dist'),
     historyApiFallback: true
