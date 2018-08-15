@@ -1,9 +1,39 @@
 const express = require('express')
 const bodyParser = require('body-parser');
+const path = require('path'); 
+const axios = require('axios');
+const Promise = require('bluebird');
+
 const app = express();
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(bodyParser.json({type: 'application/*+json'}));
+app.use(bodyParser.urlencoded({extended: true})); 
+// ^ accept API.objects// parse custom json as json
+
+// TODO.. 
+/* SETUP
+//   dist bundle file DONE
+//   serve static html
+//   dynamically watch html file
+  //  set up body parser for parsed txt, object DONE
+  //  install testing software, 
+    // create first node test
+*/
+// ROUTES
+// create route folder/file
+// AJAX - axios [bluebird for promises, both client-server]
+  // pass info from react./.html to node/express
+
+app.use(
+	'/static', 
+  express.static(path.join(__dirname + '/../client/dist'))
+  );
+
+app.get('/', (req, res) => {
+  Promise.resolve()
+    .then(() => console.log('hi'))
+    .then(() => res.send('Hello World!'))
+});
 
 
-
-app.listen(3000, () => console.log('app listening on port 3000!'))
+app.listen(3000, () => console.log('app listening on port 3000!'));

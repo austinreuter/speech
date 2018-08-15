@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "console.log('test')",
-    "start": "node server/index.js",
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js"
+    "start": "nodemon server/index.js",
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
+    "webpack": "webpack -w"
   },
   "author": "austin reuter",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "nodemon": "^1.18.3",
