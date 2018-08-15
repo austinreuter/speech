@@ -24,14 +24,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 // AJAX - axios [bluebird for promises, both client-server]
   // pass info from react./.html to node/express
 
-app.use(
-	'/static', 
+app.use('/static', 
   express.static(path.join(__dirname + '/../client/dist'))
   );
 
 app.get('/', (req, res) => {
   Promise.resolve()
-    .then(() => console.log('hi'))
+    .then(() => console.log('hi from server'))
     .then(() => res.send('Hello World!'))
 });
 
