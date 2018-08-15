@@ -7,7 +7,7 @@ export default class App extends Component {
 		super(props);
 		this.state = { response: '' }
 	}
-	callApi() {
+	async callApi() {
     const response = await fetch('/');
     const body = await response.json();
 
