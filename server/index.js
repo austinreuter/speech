@@ -33,6 +33,13 @@ app.get('/', (req, res) => {
     .then(() => console.log('hi from server'))
     .then(() => res.send('Hello World!'))
 });
+app.post('/', (req, res) => {
+	console.log(req.body)
+  Promise.resolve()
+    .then(() => {
+      console.log(req.body)
+    })
+})
 
 
 app.listen(3000, () => console.log('app listening on port 3000!'));
