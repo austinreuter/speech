@@ -5,6 +5,7 @@ const axios = require('axios');
 const Promise = require('bluebird');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json({type: 'application/*+json'}));
 app.use(bodyParser.urlencoded({extended: true})); 
@@ -21,11 +22,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 */
 // ROUTES
 // create route folder/file
-// AJAX - axios [bluebird for promises, both client-server]
+// AJAX - axios [bluebird for promises, both client-server] DONE
   // pass info from react./.html to node/express
 
-app.use('/static', 
-  express.static(path.join(__dirname + '/../client/dist'))
+app.use(
+	express.static(path.join(__dirname + '/../client/dist'))
   );
 
 app.get('/', (req, res) => {
@@ -38,8 +39,12 @@ app.post('/', (req, res) => {
   Promise.resolve()
     .then(() => {
       console.log(req.body)
+      res.send('successfully posted to server')
     })
-})
+});
+app.get('/api', (req, res) => {
+	res.send({express: 'hello from express'});
+});
 
 
-app.listen(3000, () => console.log('app listening on port 3000!'));
+app.listen(port, () => console.log(`app listening on port ${port}!`));

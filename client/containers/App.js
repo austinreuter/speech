@@ -5,10 +5,12 @@ const Promise = require('bluebird');
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { response: '' }
+		this.state = { 
+			response: '' 
+		};
 	}
 	async callApi() {
-    const response = await fetch('/');
+    const response = await fetch('/api');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -30,8 +32,10 @@ export default class App extends Component {
 
 	}
   render () {
-  	return <p> {this.state.response} /* run function from server */</p>
-
+  	return <div>
+  	<p> hi from react </p>
+  	<p> {this.state.response} </p>
+    </div>
 
   }
 }
