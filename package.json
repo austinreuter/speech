@@ -7,10 +7,11 @@
     "test": "console.log('test')",
     "start": "nodemon server/index.js",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
-    "webpack": "webpack -w"
+    "webpack": "webpack -d --w"
   },
   "author": "austin reuter",
   "license": "ISC",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",

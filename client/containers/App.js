@@ -5,33 +5,34 @@ const Promise = require('bluebird');
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { response: '' }
+		this.state = { 
+			msg: '' 
+		};
 	}
-	async callApi() {
-    const response = await fetch('/');
-    const body = await response.json();
+	callApi() {
+    axios.post('/api', {name: 'austin', msg: 'gucci'})
+      .then((msg) => {
+        console.log('axios post', msg)
+      })
 
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
   };
 	componentDidMount() {
-    axios.post('/', {name: 'austin', msg: 'gucci'})
-    .then((msg) => {
-      console.log('axios post', msg)
-    })
-    .then(() => {
-      this.callApi(res)
-      .then(res => this.setState({response: res}))
-        .then((msg) => console.log('allApi res...', res))
-        .catch((err) => console.log('err apisetstate...', err))
-    })
-    .catch((err) => console.log('err on post...', err))
+    axios.post('/api', {name: 'austin', msg: 'gucci'})
+      .then((msg) => {
+        console.log('axios post', msg)
+        return this.setState({msg: msg.data})
+      })
+      .then(() => {
+      	console.log(typeof this.state.msg, this.state.msg)
+      })
+      .catch((err) => console.log('err on post...', err))
 
 	}
   render () {
-  	return <p> {this.state.response} /* run function from server */</p>
-
+  	return <div>
+  	  <p> hi from react </p>
+  	  <button> {this.state.msg.express} </button>
+    </div>
 
   }
 }
