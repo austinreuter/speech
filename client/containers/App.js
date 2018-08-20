@@ -14,8 +14,7 @@ export default class App extends Component {
       .then((msg) => {
         console.log('axios post', msg)
       })
-
-  };
+  }
 	componentDidMount() {
     axios.post('/api', {name: 'austin', msg: 'gucci'})
       .then((msg) => {
@@ -26,7 +25,6 @@ export default class App extends Component {
       	console.log(typeof this.state.msg, this.state.msg)
       })
       .catch((err) => console.log('err on post...', err))
-
 	}
   render () {
   	return <div>
