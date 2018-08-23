@@ -17,18 +17,18 @@ Objective
 MVP
 ----
 > features 
-..* convert audio to text
-..* categorize and tag audio files
-..* search categorical audio files with API
-..* retrieve specific files by name or by categorical hash 
-..* create and store albums of related files  
-..* *tracking*
+* convert audio to text
+* categorize and tag audio files
+* search categorical audio files with API
+* retrieve specific files by name or by categorical hash 
+* create and store albums of related files  
+* *tracking*
 
 influences
 ------
-..* bit.ly create store and retrieve
-..* instagram search
-..* twitter tagging --even text search
+* bit.ly create store and retrieve
+* instagram search
+* twitter tagging --even text search
 
 interface / features
 ----
@@ -85,20 +85,22 @@ database
 
 sample sql tables, indexed
 
-> memo-data  
-| index1 | user_id2 | memo_id3 | memo4 | tag_id5 | ?spin6 |
- --- :---: ---: ---: ---: ---:  
-| num inc1 | num inc2 |  json3 |  json4 | num5 or null | number or hash relation |
+```memo-data``` | | | | | | 
+--- | --- | --- | --- | --- | --- 
+ index1 | user_id2 | memo_id3 | memo4 | tag_id5 | ?spin6 
+ num inc1 | num inc2 |  json3 |  json4 | num5 or null | number or hash relation 
 
-> user
+```user``` | | | | 
+--- | --- | --- | --- | 
 | index1 | user2  | user_id3 | hashword4 |
- --- :---: ---: ---: 
 | num inc1| num2  | num3 | string4 |
 
-> memo 
+```memo``` | | |
+--- | --- | --- |
 | memoid | audio | memo |
 
-> Spin recommendation
+```Spin recommendation``` | |
+--- | --- |
 | group_id | spin |
 
 
